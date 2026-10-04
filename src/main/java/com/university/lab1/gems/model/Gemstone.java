@@ -8,7 +8,7 @@ import java.util.Objects;
  semi-precious). Encapsulates characteristics common to all gemstones:
  name, type, weight, base price per carat, and transparency.
  */
-public abstract class Gemstone {
+public abstract class Gemstone implements Comparable<Gemstone> {
     private String name;
     private final GemstoneType type;
     private double weightInCarats;
@@ -55,20 +55,24 @@ public abstract class Gemstone {
         return percent;
     }
 
-    public String getName(String name) {
+    public String getName() {
         return name;
     }
 
-    public double getWeight(double weight) {
-        return weight;
+    public GemstoneType getType() {
+        return type;
     }
 
-    public double getPricePerCarat(double price) {
-        return price;
+    public double getWeightInCarats() {
+        return weightInCarats;
     }
 
-    public int getTransparencyPercent(int percent) {
-        return percent;
+    public double getPricePerCarat() {
+        return pricePerCarat;
+    }
+
+    public int getTransparencyPercent() {
+        return transparencyPercent;
     }
 
     /**
@@ -90,8 +94,11 @@ public abstract class Gemstone {
         return weightInCarats * pricePerCarat * getValueMultiplier();
     }
 
+    @Override
     public int compareTo(Gemstone other) {
-        return Double.compare(this.calculateValue(), other.calculateValue());
+        return Double.compare(
+                this.calculateValue(),
+                other.calculateValue());
     }
 
     @Override

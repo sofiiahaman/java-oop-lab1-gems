@@ -5,7 +5,7 @@ package com.university.lab1.gems.model;
  */
 public class SemiPreciousGemstone extends Gemstone {
     private static final double SEMI_PRECIOUS_MULTIPLIER = 1.0;
-    private static final String UNKNOWN_ORIGIN = "unknown";
+    private static final String UNKNOWN_ORIGIN = "Unknown";
 
     private final String originRegion;
 

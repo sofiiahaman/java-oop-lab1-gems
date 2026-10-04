@@ -119,4 +119,18 @@ public abstract class Gemstone implements Comparable<Gemstone> {
     public int hashCode() {
         return Objects.hash(name, type, weightInCarats);
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "%s: %s, %.2f ct, %.2f per carat, "
+                        + "%d%% transparency, value: %.2f",
+                name,
+                getCategoryName(),
+                weightInCarats,
+                pricePerCarat,
+                transparencyPercent,
+                calculateValue());
+    }
 }
+

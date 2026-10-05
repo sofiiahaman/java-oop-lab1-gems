@@ -1,6 +1,7 @@
 package com.university.lab1.gems.model;
 
 import java.util.Objects;
+import java.util.Locale;
 
 /**
 
@@ -123,6 +124,7 @@ public abstract class Gemstone implements Comparable<Gemstone> {
     @Override
     public String toString() {
         return String.format(
+                Locale.US,
                 "%s: %s, %.2f ct, %.2f per carat, "
                         + "%d%% transparency, value: %.2f",
                 name,
@@ -132,5 +134,6 @@ public abstract class Gemstone implements Comparable<Gemstone> {
                 transparencyPercent,
                 calculateValue());
     }
+
 }
 
